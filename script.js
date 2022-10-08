@@ -86,9 +86,9 @@ function checkGame(){
         playing = false;
         for(let x in positionWin){
             positionColor = document.querySelector(`div[data-item=${positionWin[x]}]`);
+            console.log(positionWin[x]);
             positionColor.style.color ="green" ;
         }
-        
 
     } else if(checkWinnerFor('o')){
         warning = 'O "o" venceu';
@@ -117,9 +117,11 @@ function checkWinnerFor(player){
 
     for(let w in pos){
         const pArray = pos[w].split(',');
+        
         positionWin = pArray;
-        let hasWon = pArray.every(option => square[option] === player);
 
+        let hasWon = pArray.every(option => square[option] === player);
+        console.log(hasWon);
         if(hasWon){
             return true;
         }
